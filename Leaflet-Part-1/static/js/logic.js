@@ -15,6 +15,7 @@ const getColor = function (depth) {
         return '#DAF7A6'; // Light green for depths 10 or less
     }
 }
+
 const geojsonMarkerOptions = function (feature) {
     return {
         radius: feature.properties.mag * 4,  // Adjusted for better visibility
@@ -25,7 +26,6 @@ const geojsonMarkerOptions = function (feature) {
         fillOpacity: 0.8
     };
 }
-
 
 let map = L.map('map').setView([20, 0], 2); // Centered on a global view
 
@@ -47,17 +47,18 @@ fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojso
         }).addTo(map);
 
         // Adding a legend to the map
-        const legend = L.control({position: 'bottomright'});
+        const legend = L.control({ position: 'bottomright' });
 
         legend.onAdd = function () {
             const div = L.DomUtil.create('div', 'info legend');
             const depths = [-10, 10, 30, 50, 70, 90];
-            const labels = [];
 
             for (let i = 0; i < depths.length; i++) {
                 div.innerHTML +=
+                    '<div class="label-container">' +
                     '<i style="background:' + getColor(depths[i] + 1) + '"></i> ' +
-                    depths[i] + (depths[i + 1] ? '&ndash;' + depths[i + 1] + '<br>' : '+');
+                    depths[i] + (depths[i + 1] ? '&ndash;' + depths[i + 1] + '<br>' : '+') +
+                    '</div>';
             }
 
             return div;
