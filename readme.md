@@ -91,5 +91,5 @@ This repository is licensed under the [MIT License](LICENSE).
 
 If you have any questions, suggestions, or concerns regarding this repository, please don't hesitate to contact the repository owner:
 
-- Email: [nam_son14@yahoo.com](mailto:nam_son14@yahoo.com
+- Email: [nam_son14@yahoo.com](mailto:nam_son14@yahoo.com)
 - GitHub: [songuyen89](https://github.com/sonnguyen89)
